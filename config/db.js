@@ -3,10 +3,13 @@ import mongoose from "mongoose";
 
 dotenv.config();
 
-mongoose.connect(process.env.MONGO_URI, (err) => {
-    err
-        ? console.log("⛔ Error al conectarse a MongoDB")
-        : console.log("🆗 Conectados a MongoDB")
-})
+const connectToMongoDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log("🆗 Conectados a MongoDB");
+  } catch (error) {
+    console.error("⛔ Error al conectarse a MongoDB:", error.message);
+  }
+};
 
-export default mongoose;
+export default connectToMongoDB;

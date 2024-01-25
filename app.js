@@ -167,7 +167,7 @@ routerCart.get('/:id/productos', async(req, res) => {
     }
 })
 
-const PORT = 8080;
+const PORT = 8000;
 const server = app.listen(PORT, () => {
 console.log(` >>>>> 🚀 Server started at http://localhost:${PORT}`)
 })
